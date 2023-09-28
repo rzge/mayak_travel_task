@@ -29,7 +29,8 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
 async def greeting(message: types.Message):
-    await message.reply("Привет!\nЭто тестовое задание для Mayak.travel).\nКидай мне файл в формате .xlsx!")
+    await message.reply("Привет!\nЭто тестовое задание для Mayak.travel).\nКидай мне файл в формате .xlsx!\n\n"
+                        "/average_price выведет среднюю цену по каждому сайту")
     logging.info(f'Приветствуем пользователя: {message.from_user.first_name}')
 
 
