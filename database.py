@@ -42,5 +42,5 @@ async def average_price():
         for row in results:
             site = row[0]
             avg_price = row[1]
-            avg_prices.append(f"{site}: {avg_price}")
+            avg_prices.append(f"{site}: {round(avg_price, 2)}")
         return avg_prices
