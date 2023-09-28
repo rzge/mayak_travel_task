@@ -30,6 +30,7 @@ async def greeting(message: types.Message):
     await message.reply("Привет!\nЭто тестовое задание для Mayak.travel).\nКидай мне файл в формате .xlsx!")
     logging.info(f'Приветствуем пользователя: {message.from_user.first_name}')
 
+
 @dp.message_handler(commands=['average_price'])
 async def avg_price_info(message: types.Message):
     """
