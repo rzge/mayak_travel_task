@@ -25,14 +25,22 @@ import aiosqlite
 
 
 async def save_to_db(excel_info: pd.DataFrame):
-    print('подключение к бд')
     excel_info = excel_info.reset_index()
     info_to_db = []
     for index, row in excel_info.iterrows():
         info_to_db.append((row['Товар'], row['Сайт'], row['Цена']))
-    print(info_to_db)
     async with aiosqlite.connect('product_info.db') as db:
         await db.executemany('INSERT INTO Информация (name, site, price) VALUES (?, ?, ?)',
                              info_to_db)
         await db.commit()
-        print('Коммитим изменения')
+
+
+async def average_price():
+    async with aiosqlite.connect('product_info.db') as db:
+        results = await db.execute_fetchall('SELECT site, AVG(price) AS avg_price FROM Информация GROUP BY site')
+        avg_prices = []
+        for row in results:
+            site = row[0]
+            avg_price = row[1]
+            avg_prices.append(f"{site}: {avg_price}")
+        return avg_prices
