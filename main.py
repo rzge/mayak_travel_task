@@ -1,11 +1,13 @@
 import configparser
 import logging
+import os
+
 import pandas as pd
 import database
 
 from aiogram import Bot, Dispatcher, types
 from aiogram.utils import executor
-import os
+
 
 # Директория для загрузки приходящих файлов от пользователя
 directory_path_to_file = os.path.dirname(os.path.realpath(__file__)) + '\\documents'
