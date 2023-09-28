@@ -42,7 +42,7 @@ async def handle_file(message: types.Message):
     await message.document.download(directory_path_to_file+f'\\{message.document.file_name}')
     df = pd.read_excel(directory_path_to_file+f'\\{message.document.file_name}')
     await message.reply((str(df)))
-
+    await database.save_to_db(df)
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
