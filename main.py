@@ -19,7 +19,7 @@ dp = Dispatcher(bot)
 
 
 @dp.message_handler(commands=['start'])
-async def send_welcome(message: types.Message):
+async def greeting(message: types.Message):
     await message.reply("Привет!\nЭто тестовое задание для Mayak.travel).\nКидай мне файл в формате .xlsx!")
 
 
