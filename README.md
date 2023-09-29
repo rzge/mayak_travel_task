@@ -16,6 +16,7 @@ INFO
     pip install -r requirements.txt
     touch config.ini
     nano config.ini
+    mkdir documents
 
         [Telegram]
         api_token = YOUR_TOKEN
