@@ -15,8 +15,8 @@ INFO
     source venv/bin/activate
     pip install -r requirements.txt
     touch config.ini
-    nano config.ini
     mkdir documents
+    nano config.ini
 
         [Telegram]
         api_token = YOUR_TOKEN
